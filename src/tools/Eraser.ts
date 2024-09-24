@@ -1,6 +1,6 @@
 import Tool from "./Tool";
 
-export default class Brush extends Tool {
+export default class Eraser extends Tool {
 
   constructor(canvas: HTMLCanvasElement) {
     super(canvas);
@@ -9,6 +9,8 @@ export default class Brush extends Tool {
 
   mouseUpHandler() {
     this.mouseDown = false;
+    this.ctx.strokeStyle = this.ctx.fillStyle;
+    this.ctx.lineWidth = 1;
   }
 
   mouseDownHandler(e: MouseEvent) {
@@ -26,5 +28,7 @@ export default class Brush extends Tool {
   draw(x: number, y: number) {
     this.ctx.lineTo(x, y);
     this.ctx.stroke();
+    this.ctx.strokeStyle = 'white';
+    this.ctx.lineWidth = 10;
   }
 }
