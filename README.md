@@ -1,3 +1,5 @@
+<h2>Пример работы: <a href='https://canvas-test-n63r.onrender.com' alt='example work'>Live Demo</a></h2>
+
 Для запуска проекта необходимо установить зависимости:
 
 ```sh
