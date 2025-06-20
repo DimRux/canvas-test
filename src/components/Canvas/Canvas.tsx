@@ -16,9 +16,22 @@ export const Canvas: React.FC = observer(() => {
     toolState.setTool(new Brush(canvasRef.current));
   }, []);
 
+  const mouseDownHandler = () => {
+    if (!canvasRef.current) {
+      throw new Error('нет ссылки ref');
+    }
+    canvasState.pushToUndo(canvasRef.current.toDataURL());
+  }
+
   return (
     <div className={styles.canvasWrapper}>
-      <canvas ref={canvasRef} className={styles.canvas} width={600} height={400} />
+      <canvas
+        ref={canvasRef} 
+        className={styles.canvas} 
+        width={600} 
+        height={400}
+        onMouseDown={() => mouseDownHandler()}
+      />
     </div>
   );
 });

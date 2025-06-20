@@ -74,9 +74,21 @@ export const Toolbar: React.FC = observer(() => {
           }
         }}
       />
-      <button type="button" className={`${styles.btn} ${styles.undo}`} />
-      <button type="button" className={`${styles.btn} ${styles.redo}`} />
-      <button type="button" className={`${styles.btn} ${styles.save}`} />
+      <button 
+        type="button" 
+        className={`${styles.btn} ${styles.undo}`}
+        onClick={() => canvasState.undo()}  
+      />
+      <button
+        type="button"
+        className={`${styles.btn} ${styles.redo}`}
+        onClick={() => canvasState.redo()} 
+      />
+      <button
+        type="button"
+        className={`${styles.btn} ${styles.save}`}
+        onClick={() => canvasState.save()} 
+      />
     </div>
   );
 });
